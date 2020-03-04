@@ -12,6 +12,7 @@ public class Partner {
 	private LocalDate subscribedSince;
 	private String status;
 	
+	public Partner() {}
 	
 	public Partner(BigInteger code, String fullName, String identification, String email, String address,
 			LocalDate subscribedSince, String status) {
