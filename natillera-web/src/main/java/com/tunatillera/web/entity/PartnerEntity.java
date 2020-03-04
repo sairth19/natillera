@@ -1,13 +1,18 @@
 package com.tunatillera.web.entity;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "un_partners")
 public class PartnerEntity {
-	private BigInteger code;
+	private Long code;
 	private String fullName;
 	private String identification;
 	private String email;
@@ -17,7 +22,7 @@ public class PartnerEntity {
 	
 	public PartnerEntity() {}
 
-	public PartnerEntity(BigInteger code, String fullName, String identification, String email, String address,
+	public PartnerEntity(Long code, String fullName, String identification, String email, String address,
 			LocalDate subscribedSince, String status) {
 		super();
 		this.code = code;
@@ -29,14 +34,18 @@ public class PartnerEntity {
 		this.status = status;
 	}
 
-	public BigInteger getCode() {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "ptr_code")
+	public Long getCode() {
 		return code;
 	}
 
-	public void setCode(BigInteger code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 
+	@Column(name = "ptr_full_name", length=255, nullable = false)
 	public String getFullName() {
 		return fullName;
 	}
@@ -45,6 +54,7 @@ public class PartnerEntity {
 		this.fullName = fullName;
 	}
 
+	@Column(name = "ptr_identification", length=15, nullable = false)
 	public String getIdentification() {
 		return identification;
 	}
@@ -53,6 +63,7 @@ public class PartnerEntity {
 		this.identification = identification;
 	}
 
+	@Column(name = "ptr_email", length=255, nullable = false)
 	public String getEmail() {
 		return email;
 	}
@@ -61,6 +72,7 @@ public class PartnerEntity {
 		this.email = email;
 	}
 
+	@Column(name = "ptr_address", length=255, nullable = false)
 	public String getAddress() {
 		return address;
 	}
@@ -69,6 +81,7 @@ public class PartnerEntity {
 		this.address = address;
 	}
 
+	@Column(name = "ptr_subscribed_since", nullable = false)
 	public LocalDate getSubscribedSince() {
 		return subscribedSince;
 	}
@@ -77,6 +90,7 @@ public class PartnerEntity {
 		this.subscribedSince = subscribedSince;
 	}
 
+	@Column(name = "ptr_status", length=2, nullable = false)
 	public String getStatus() {
 		return status;
 	}
