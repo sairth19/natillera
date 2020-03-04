@@ -31,7 +31,7 @@ public class CreatePartnerUC implements IUseCase<Partner, UseCaseReponse<Partner
 			response.setStatusCode(PARTNER_ALREADY_EXISTS);
 		} else {
 			partner.setSubscribedSince(LocalDate.now());
-			
+			partner.setStatus(PartnerStatusEnum.ACTIVE.getCode());
 			try {
 				partner = partnerRepository.saveOrUpdate(partner);
 				response.setOutput(partner);

@@ -23,6 +23,7 @@ public class CreatePartnerUCTest {
 		final UseCaseReponse<Partner> response = createPartnerUC.execute(partner);
 		
 		Assert.assertEquals(CreatePartnerUC.PARTNER_CREATED_SUCCESSFULLY, response.getStatusCode());
+		Assert.assertEquals(PartnerStatusEnum.ACTIVE.getCode(), response.getOutput().getStatus());
 		Assert.assertNotNull(response.getOutput().getSubscribedSince());
 	}
 	

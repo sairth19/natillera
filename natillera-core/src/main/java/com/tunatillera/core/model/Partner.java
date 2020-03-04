@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.time.LocalDate;
 
 public class Partner {
-	private BigInteger code;
+	private Long code;
 	private String fullName;
 	private String identification;
 	private String email;
@@ -14,7 +14,7 @@ public class Partner {
 	
 	public Partner() {}
 	
-	public Partner(BigInteger code, String fullName, String identification, String email, String address,
+	public Partner(Long code, String fullName, String identification, String email, String address,
 			LocalDate subscribedSince, String status) {
 		super();
 		this.code = code;
@@ -26,11 +26,11 @@ public class Partner {
 		this.status = status;
 	}
 
-	public BigInteger getCode() {
+	public Long getCode() {
 		return code;
 	}
 	
-	public void setCode(BigInteger code) {
+	public void setCode(Long code) {
 		this.code = code;
 	}
 	
