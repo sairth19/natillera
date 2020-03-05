@@ -1,6 +1,7 @@
 package com.tunatillera.web.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 
 import com.tunatillera.core.model.Partner;
 import com.tunatillera.core.repository.IPartnerRepository;
@@ -23,10 +24,9 @@ public class PartnerRepositoryAdapter implements IPartnerRepository {
 	@Override
 	public Partner saveOrUpdate(Partner partner) throws RepositoryException {
 		PartnerEntity entity = PARTNER_MAPPER.modelToEntity(partner);
-		
 		try {
 			entity = repository.save(entity);
-		}catch(Exception ex) {
+		}catch(DataAccessException ex) {
 			throw new RepositoryException();
 		}
 		
