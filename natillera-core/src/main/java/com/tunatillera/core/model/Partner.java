@@ -1,29 +1,28 @@
 package com.tunatillera.core.model;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 
 public class Partner {
 	private Long code;
 	private String fullName;
 	private String identification;
-	private String email;
-	private String address;
+	private LocalDate birthdDate;
 	private LocalDate subscribedSince;
 	private String status;
+	private PartnerContactInfo contactInfo;
 	
 	public Partner() {}
-	
-	public Partner(Long code, String fullName, String identification, String email, String address,
-			LocalDate subscribedSince, String status) {
+
+	public Partner(Long code, String fullName, String identification, LocalDate birthdDate, LocalDate subscribedSince,
+			String status, PartnerContactInfo contactInfo) {
 		super();
 		this.code = code;
 		this.fullName = fullName;
 		this.identification = identification;
-		this.email = email;
-		this.address = address;
+		this.birthdDate = birthdDate;
 		this.subscribedSince = subscribedSince;
 		this.status = status;
+		this.contactInfo = contactInfo;
 	}
 
 	public Long getCode() {
@@ -46,24 +45,17 @@ public class Partner {
 		return identification;
 	}
 	
+	
+	public LocalDate getBirthdDate() {
+		return birthdDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthdDate = birthDate;
+	}
+
 	public void setIdentification(String identification) {
 		this.identification = identification;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getAddress() {
-		return address;
-	}
-	
-	public void setAddress(String address) {
-		this.address = address;
 	}
 	
 	public LocalDate getSubscribedSince() {
@@ -80,5 +72,13 @@ public class Partner {
 	
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public PartnerContactInfo getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(PartnerContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 }

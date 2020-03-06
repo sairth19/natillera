@@ -17,6 +17,8 @@ public class PartnerRepositoryAdapter implements IPartnerRepository {
 	
 	private static final PartnerMapper PARTNER_MAPPER = new PartnerMapper();
 	
+	public PartnerRepositoryAdapter() {}
+	
 	public PartnerRepositoryAdapter(PartnerJpaRepository repository) {
 		this.repository = repository;
 	}

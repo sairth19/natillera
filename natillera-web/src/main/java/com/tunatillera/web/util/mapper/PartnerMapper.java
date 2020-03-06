@@ -11,8 +11,6 @@ public class PartnerMapper implements EntityModelMapper<PartnerEntity, Partner>{
 		model.setCode(entity.getCode());
 		model.setFullName(entity.getFullName());
 		model.setIdentification(entity.getIdentification());
-		model.setEmail(entity.getEmail());
-		model.setAddress(entity.getAddress());
 		model.setStatus(entity.getStatus());
 		model.setSubscribedSince(entity.getSubscribedSince());
 		
@@ -25,8 +23,6 @@ public class PartnerMapper implements EntityModelMapper<PartnerEntity, Partner>{
 		entity.setCode(model.getCode());
 		entity.setFullName(model.getFullName());
 		entity.setIdentification(model.getIdentification());
-		entity.setEmail(model.getEmail());
-		entity.setAddress(model.getAddress());
 		entity.setStatus(model.getStatus());
 		entity.setSubscribedSince(model.getSubscribedSince());
 

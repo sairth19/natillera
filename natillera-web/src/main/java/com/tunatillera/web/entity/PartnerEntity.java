@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,21 +17,20 @@ public class PartnerEntity {
 	private Long code;
 	private String fullName;
 	private String identification;
-	private String email;
-	private String address;
+	private LocalDate birthDate;
 	private LocalDate subscribedSince;
 	private String status;
+	private PartnerContactInfoEntity contactInfo;
 	
 	public PartnerEntity() {}
 
-	public PartnerEntity(Long code, String fullName, String identification, String email, String address,
+	public PartnerEntity(Long code, String fullName, String identification, LocalDate birthDate,
 			LocalDate subscribedSince, String status) {
 		super();
 		this.code = code;
 		this.fullName = fullName;
 		this.identification = identification;
-		this.email = email;
-		this.address = address;
+		this.birthDate = birthDate;
 		this.subscribedSince = subscribedSince;
 		this.status = status;
 	}
@@ -63,22 +64,13 @@ public class PartnerEntity {
 		this.identification = identification;
 	}
 
-	@Column(name = "ptr_email", length=255, nullable = false)
-	public String getEmail() {
-		return email;
+	@Column(name = "ptr_birthdate", nullable = false)
+	public LocalDate getBirthDate() {
+		return birthDate;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	@Column(name = "ptr_address", length=255, nullable = false)
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	@Column(name = "ptr_subscribed_since", nullable = false)
@@ -97,5 +89,15 @@ public class PartnerEntity {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	@OneToOne
+	@JoinColumn(name = "ptr_pci_id", referencedColumnName = "pci_code")
+	public PartnerContactInfoEntity getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(PartnerContactInfoEntity contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 }

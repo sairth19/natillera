@@ -45,7 +45,6 @@ public class CreatePartnerUCTest {
 	private Partner getPartner() {
 		Partner partner = new Partner();
 		partner.setFullName("John Doe");
-		partner.setEmail("john.doe@mail.com");
 		partner.setIdentification("123456789");
 		
 		return partner;
