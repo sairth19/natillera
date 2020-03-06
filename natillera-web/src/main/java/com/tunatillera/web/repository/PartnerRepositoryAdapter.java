@@ -29,6 +29,7 @@ public class PartnerRepositoryAdapter implements IPartnerRepository {
 		try {
 			entity = repository.save(entity);
 		}catch(DataAccessException ex) {
+			ex.printStackTrace();
 			throw new RepositoryException();
 		}
 		
@@ -37,8 +38,7 @@ public class PartnerRepositoryAdapter implements IPartnerRepository {
 
 	@Override
 	public boolean partnerAlreadyExist(String partnerIdentification) {
-		// TODO Auto-generated method stub
-		return false;
+		return repository.existsPartnerByIdentification(partnerIdentification);
 	}
 
 }

@@ -44,7 +44,7 @@ public class PartnerContactInfoEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@Column(name = "pci_homephone", length=15, nullable = false)
+	@Column(name = "pci_homephone", length=15, nullable = true)
 	public String getHomephone() {
 		return homephone;
 	}

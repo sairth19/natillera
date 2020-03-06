@@ -7,5 +7,5 @@ import com.tunatillera.web.entity.PartnerEntity;
 
 @Repository
 public interface PartnerJpaRepository extends JpaRepository<PartnerEntity, Long> {
-
+	boolean existsPartnerByIdentification(String identification);
 }

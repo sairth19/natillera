@@ -15,10 +15,9 @@ public class PartnerVO {
 	private Long code;
 	private String fullName;
 	private String identification;
-	private String email;
-	private String address;
 	private LocalDate subscribedSince;
 	private String status;
+	private PartnerContactInfoVO contactInfo;
 	
 	public static PartnerVO toVO(Partner partner) {
 		PartnerVO vo =  new PartnerVO();
