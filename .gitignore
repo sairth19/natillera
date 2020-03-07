@@ -323,5 +323,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# file: ~/.gitignore_global
+.DS_Store
+.idea
+
 
 # End of https://www.gitignore.io/api/git,java,maven,eclipse,windows
